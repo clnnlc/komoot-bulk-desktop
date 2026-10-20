@@ -26,7 +26,15 @@ Mit Python 3.12 auf Windows im Verzeichnis dieses Dokuments:
 python -m venv .venv
 .venv/Scripts/python -m pip install -r source/requirements.txt
 .venv/Scripts/python -m unittest discover -s source -p test_export.py
-.venv/Scripts/python -m PyInstaller --noconfirm --clean --onefile --windowed --name KomootBulk source/app.py
+.venv/Scripts/python -m PyInstaller --noconfirm --clean --onefile --windowed --name KomootBulk --icon source/assets/app.ico --add-data "source/assets;assets" source/app.py
 ```
 
 Die neue EXE liegt anschließend unter `dist/`. Alternativ mit `.venv/Scripts/python source/app.py` starten.
+
+
+## Oberfläche
+
+![Komoot Bulk](preview.png)
+
+Version 1.1.0: überarbeitete Oberfläche und eigenes Icon für Fenster, Taskleiste und EXE. Die Icon-Assets lassen sich mit Pillow und `python source/build_assets.py` neu erzeugen.
+
